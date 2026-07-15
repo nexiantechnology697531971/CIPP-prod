@@ -5,6 +5,7 @@ import { CippPolicyDeployDrawer } from '../../../../components/CippComponents/Ci
 import { useSettings } from '../../../../hooks/use-settings.js'
 import { useCippIntunePolicyActions } from '../../../../components/CippComponents/CippIntunePolicyActions.jsx'
 import { useCippReportDB } from '../../../../components/CippComponents/CippReportDBControls'
+import { CippIntunePolicyDetails } from '../../../../components/CippComponents/CippIntunePolicyDetails.jsx'
 import { Stack } from '@mui/system'
 
 const Page = () => {
@@ -33,10 +34,13 @@ const Page = () => {
     extendedInfoFields: [
       'createdDateTime',
       'displayName',
+      'description',
       'lastModifiedDateTime',
       'PolicyTypeName',
     ],
     actions: actions,
+    children: (row) => <CippIntunePolicyDetails row={row} tenant={tenant} />,
+    size: 'lg',
   }
 
   const simpleColumns = [
